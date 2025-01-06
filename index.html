@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Management System - Merge Sort</title>
+    <title>Water Management System</title>
     <style>
         * {
             margin: 0;
@@ -70,81 +70,44 @@
             min-height: 100vh;
         }
 
-        .section {
-            margin-bottom: 80px;
-            padding: 40px 0;
+        .hero-section {
+            height: calc(100vh - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
-        h1, h2, h3 {
-            color: #ccd6f6;
-            margin-bottom: 20px;
+        .hero-content {
+            max-width: 800px;
         }
 
         h1 {
             font-size: 48px;
-            font-weight: bold;
+            color: #ccd6f6;
+            margin-bottom: 20px;
         }
 
-        h2 {
-            font-size: 32px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100px;
-            height: 2px;
-            background-color: #64ffda;
-        }
-
-        .code-block {
-            background: #112240;
-            padding: 20px;
-            border-radius: 4px;
-            margin: 20px 0;
-            overflow-x: auto;
-        }
-
-        code {
-            font-family: 'Fira Code', monospace;
-            color: #a8b2d1;
-        }
-
-        .profile-section {
-            display: flex;
-            align-items: flex-start;
-            gap: 40px;
-            margin: 60px 0;
-        }
-
-        .profile-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 4px;
-            border: 2px solid #64ffda;
-        }
-
-        .profile-content {
-            flex: 1;
-        }
-
-        .profile-content h2 {
-            color: #64ffda;
+        .subtitle {
             font-size: 24px;
+            color: #64ffda;
+            margin-bottom: 30px;
         }
 
-        ul {
-            margin: 20px 0;
-            padding-left: 20px;
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: transparent;
+            border: 2px solid #64ffda;
+            color: #64ffda;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            margin: 10px;
         }
 
-        li {
-            margin-bottom: 10px;
-            color: #8892b0;
+        .cta-button:hover {
+            background-color: rgba(100, 255, 218, 0.1);
         }
 
         footer {
@@ -152,112 +115,30 @@
             color: #8892b0;
             text-align: center;
             padding: 20px 0;
-            margin-top: 100px;
         }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo">Water Management</a>
+            <a href="index.html" class="logo">Water Management</a>
             <ul class="nav-links">
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#algorithm">Algorithm</a></li>
-                <li><a href="#implementation">Implementation</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="problem.html">Problem</a></li>
+                <li><a href="algorithm.html">Algorithm</a></li>
+                <li><a href="implementation.html">Implementation</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="main-content container">
-        <section id="overview" class="section">
-            <h1>Advanced Algorithms for Efficient Water Management</h1>
-            <p>This project focuses on implementing an efficient system for ranking urban areas based on water scarcity levels. Using the Merge Sort algorithm, we create a prioritized list that helps in optimal water resource allocation and management.</p>
-        </section>
-
-        <section id="algorithm" class="section">
-            <h2>Merge Sort Algorithm</h2>
-            <p>The algorithm works by dividing the data into smaller subsets, sorting them, and then merging them back together. Key features:</p>
-            <ul>
-                <li>Time Complexity: O(n log n)</li>
-                <li>Space Complexity: O(n)</li>
-                <li>Stable sorting algorithm</li>
-                <li>Efficient for large datasets</li>
-            </ul>
-        </section>
-
-        <section id="implementation" class="section">
-            <h2>Implementation</h2>
-            <div class="code-block">
-                <code>
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-using namespace std;
-
-void merge(vector<int>& arr, int left, int mid, int right) {
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
-    vector<int> L(n1), R(n2);
-
-    for (int i = 0; i < n1; i++)
-        L[i] = arr[left + i];
-    for (int j = 0; j < n2; j++)
-        R[j] = arr[mid + 1 + j];
-
-    int i = 0, j = 0, k = left;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            arr[k] = L[i];
-            i++;
-        } else {
-            arr[k] = R[j];
-            j++;
-        }
-        k++;
-    }
-
-    while (i < n1) {
-        arr[k] = L[i];
-        i++;
-        k++;
-    }
-
-    while (j < n2) {
-        arr[k] = R[j];
-        j++;
-        k++;
-    }
-}
-
-void mergeSort(vector<int>& arr, int left, int right) {
-    if (left < right) {
-        int mid = left + (right - left) / 2;
-        mergeSort(arr, left, mid);
-        mergeSort(arr, mid + 1, right);
-        merge(arr, left, mid, right);
-    }
-}
-                </code>
-            </div>
-        </section>
-
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <div class="profile-section">
-                <img src="/api/placeholder/300/300" alt="Profile Picture" class="profile-img">
-                <div class="profile-content">
-                    <h2>Owais Aminbhavi</h2>
-                    <h3>Roll No: 265</h3>
-                    <p>I am a student working on the Advanced Algorithms for Efficient Water Management project. My role focuses on developing and implementing the ranking system for water scarcity in urban areas using the Merge Sort algorithm.</p>
-                    
-                    <h3>Project Role</h3>
-                    <p>Responsible for creating an efficient ranking system that:</p>
-                    <ul>
-                        <li>Analyzes water scarcity data across different urban areas</li>
-                        <li>Implements Merge Sort for efficient data processing</li>
-                        <li>Provides prioritized rankings for resource allocation</li>
-                        <li>Integrates with the team's water management system</li>
-                    </ul>
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Advanced Algorithms for Efficient Water Management</h1>
+                <p class="subtitle">Optimizing Water Resource Allocation using Merge Sort</p>
+                <div>
+                    <a href="problem.html" class="cta-button">View Problem</a>
+                    <a href="implementation.html" class="cta-button">See Implementation</a>
                 </div>
             </div>
         </section>
