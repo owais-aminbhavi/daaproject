@@ -180,16 +180,16 @@
             <h1>Implementation</h1>
             <div class="code-block">
                 <pre><code>
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;string&gt;
+#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
-void merge(vector&lt;pair&lt;string, int&gt;&gt;& areas, int left, int mid, int right) {
+void merge(vector<pair<string, int>>& areas, int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
     
-    vector&lt;pair&lt;string, int&gt;&gt; L(n1), R(n2);
+    vector<pair<string, int>> L(n1), R(n2);
     for (int i = 0; i < n1; i++)
         L[i] = areas[left + i];
     for (int j = 0; j < n2; j++)
@@ -219,6 +219,43 @@ void merge(vector&lt;pair&lt;string, int&gt;&gt;& areas, int left, int mid, int 
         j++;
         k++;
     }
+}
+
+void mergeSort(vector<pair<string, int>>& areas, int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+        mergeSort(areas, left, mid);
+        mergeSort(areas, mid + 1, right);
+        merge(areas, left, mid, right);
+    }
+}
+
+void printAreas(const vector<pair<string, int>>& areas) {
+    for (const auto& area : areas) {
+        cout << area.first << ": " << area.second << " sq km" << endl;
+    }
+}
+
+int main() {
+    vector<pair<string, int>> areas = {
+        {"Area A", 450},
+        {"Area B", 120},
+        {"Area C", 300},
+        {"Area D", 500},
+        {"Area E", 230}
+    };
+    
+    cout << "Before sorting:" << endl;
+    printAreas(areas);
+    
+    mergeSort(areas, 0, areas.size() - 1);
+    
+    cout << "\nAfter sorting by area:" << endl;
+    printAreas(areas);
+    
+    return 0;
+}
+
 } </code>  </pre>
             </div>
         </div>
