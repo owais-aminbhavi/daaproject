@@ -3,149 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Management System</title>
+    <title>Water Scarcity Ranking System</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
 
         body {
-            background-color: #0a192f;
-            color: #8892b0;
+            background: #f0f2f5;
+            color: #333;
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background-color: rgba(10, 25, 47, 0.85);
-            padding: 20px 0;
+        .navbar {
+            background: #1a73e8;
+            padding: 1rem;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo {
-            color: #64ffda;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .nav-links {
+        .navbar ul {
             list-style: none;
             display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: #ccd6f6;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 16px;
-        }
-
-        .nav-links a:hover {
-            color: #64ffda;
-        }
-
-        .main-content {
-            padding-top: 100px;
-            min-height: 100vh;
-        }
-
-        .hero-section {
-            height: calc(100vh - 100px);
-            display: flex;
-            align-items: center;
             justify-content: center;
-            text-align: center;
+            gap: 2rem;
         }
 
-        .hero-content {
-            max-width: 800px;
-        }
-
-        h1 {
-            font-size: 48px;
-            color: #ccd6f6;
-            margin-bottom: 20px;
-        }
-
-        .subtitle {
-            font-size: 24px;
-            color: #64ffda;
-            margin-bottom: 30px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: transparent;
-            border: 2px solid #64ffda;
-            color: #64ffda;
+        .navbar a {
+            color: white;
             text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s;
-            margin: 10px;
+            font-size: 1.1rem;
+            transition: opacity 0.3s;
         }
 
-        .cta-button:hover {
-            background-color: rgba(100, 255, 218, 0.1);
+        .navbar a:hover {
+            opacity: 0.8;
         }
 
-        footer {
-            background-color: #112240;
-            color: #8892b0;
+        .content {
+            margin-top: 80px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section h1, .section h2 {
+            color: #1a73e8;
+            margin-bottom: 1.5rem;
+        }
+
+        .section h2 {
+            margin-top: 2rem;
+        }
+
+        .profile {
             text-align: center;
-            padding: 20px 0;
+            margin-bottom: 2rem;
+        }
+
+        .profile img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid #1a73e8;
+        }
+
+        .profile-info {
+            margin-top: 1rem;
+        }
+
+        .profile-info p {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .code-block {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Consolas', monospace;
+            margin: 1rem 0;
+        }
+
+        .bullet-points {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .bullet-points li {
+            margin-bottom: 0.8rem;
+        }
+
+        .emphasis {
+            font-weight: bold;
+            color: #1a73e8;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1a73e8;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">Water Management</a>
-            <ul class="nav-links">
-                <li><a href="about.html">About</a></li>
-                <li><a href="problem.html">Problem</a></li>
-                <li><a href="algorithm.html">Algorithm</a></li>
-                <li><a href="implementation.html">Implementation</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="problem.html">Problem</a></li>
+            <li><a href="algorithm.html">Algorithm</a></li>
+            <li><a href="code.html">Code</a></li>
+        </ul>
+    </nav>
 
-    <main class="main-content">
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1>Advanced Algorithms for Efficient Water Management</h1>
-                <p class="subtitle">Optimizing Water Resource Allocation using Merge Sort</p>
-                <div>
-                    <a href="problem.html" class="cta-button">View Problem</a>
-                    <a href="implementation.html" class="cta-button">See Implementation</a>
+    <!-- About Page -->
+    <div id="about" class="content" style="display: none;">
+        <div class="section">
+            <div class="profile">
+                <img src="/api/placeholder/200/200" alt="Owais Aminbhavi">
+                <div class="profile-info">
+                    <h2>Owais Aminbhavi</h2>
+                    <p>Roll No: 265</p>
+                    <p>Division: Computer Science</p>
+                    <p>Branch: Engineering</p>
+                    <p>"Dedicated to solving urban water management challenges through innovative algorithmic solutions"</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Water Management Project</p>
-    </footer>
+    <!-- Problem Statement Page -->
+    <div id="problem" class="content" style="display: none;">
+        <div class="section">
+            <h1>Problem Statement</h1>
+            <h2>Ranking Areas by Water Scarcity in Urban Areas</h2>
+            <p>In urban areas, water scarcity is a growing issue, and efficient water management requires accurate identification and prioritization of regions most in need of intervention...</p>
+            
+            <h2>Why Is It Important?</h2>
+            <ul class="bullet-points">
+                <li><span class="emphasis">Optimized Resource Allocation:</span> Helps city planners and authorities allocate water resources to the areas most in need.</li>
+                <li><span class="emphasis">Equitable Distribution:</span> Ensures that every area receives adequate water supply based on its scarcity level.</li>
+                <li><span class="emphasis">Cost-Effective Solutions:</span> Enables targeted interventions, saving costs by focusing on the regions where water management issues are most critical.</li>
+            </ul>
+
+            <h2>What Happens When It Is Solved?</h2>
+            <ul class="bullet-points">
+                <li><span class="emphasis">Improved Decision-Making:</span> Decision-makers can make informed choices about where to implement water-saving measures.</li>
+                <li><span class="emphasis">Reduced Wastage:</span> Helps reduce the wastage of water by directing resources efficiently.</li>
+                <li><span class="emphasis">Sustainable Urban Development:</span> Contributes to sustainable urban growth.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Algorithm Page -->
+    <div id="algorithm" class="content" style="display: none;">
+        <div class="section">
+            <h1>Algorithm: Merge Sort</h1>
+            
+            <h2>What is Merge Sort?</h2>
+            <ul class="bullet-points">
+                <li>A divide-and-conquer sorting algorithm that breaks down a dataset into smaller sub-arrays</li>
+                <li>Known for its efficiency in handling large datasets</li>
+            </ul>
+
+            <h2>Why Merge Sort?</h2>
+            <ul class="bullet-points">
+                <li><span class="emphasis">Efficiency:</span> O(n log n) time complexity</li>
+                <li><span class="emphasis">Stability:</span> Maintains relative order of equal elements</li>
+                <li><span class="emphasis">Parallelizable:</span> Suitable for parallel processing</li>
+            </ul>
+
+            <h2>Time & Space Complexity</h2>
+            <ul class="bullet-points">
+                <li>Best Case: O(n log n)</li>
+                <li>Average Case: O(n log n)</li>
+                <li>Worst Case: O(n log n)</li>
+                <li>Space Complexity: O(n)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Code Page -->
+    <div id="code" class="content" style="display: none;">
+        <div class="section">
+            <h1>Code Implementation</h1>
+            <div class="code-block">
+                <pre><code>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+using namespace std;
+
+void merge(vector&lt;pair&lt;string, int&gt;&gt;& areas, int left, int mid, int right) {
+    // ... [rest of the code as provided]
+}
+
+void mergeSort(vector&lt;pair&lt;string, int&gt;&gt;& areas, int left, int right) {
+    // ... [rest of the code as provided]
+}
+
+int main() {
+    // ... [rest of the code as provided]
+}
+                </code></pre>
+            </div>
+
+            <h2>How the Code Works</h2>
+            <ul class="bullet-points">
+                <li>The array of areas with their respective water scarcity levels is initially unsorted</li>
+                <li>The mergeSort function recursively splits the array into halves</li>
+                <li>The merge function combines the sorted sub-arrays</li>
+                <li>Finally, areas are ranked from least to most water scarcity</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Simple routing
+        function showPage(pageId) {
+            document.querySelectorAll('.content').forEach(content => {
+                content.style.display = 'none';
+            });
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        // Show default page
+        showPage('about');
+    </script>
 </body>
 </html>
